@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: dynamic-traffic-ml-api
+    env: python
+    plan: free
+    buildCommand: pip install --upgrade pip setuptools wheel && pip install -r requirements.txt
+    startCommand: uvicorn model_api:app --host 0.0.0.0 --port 10000
+    envVars:
+      PYTHON_VERSION: 3.10.12
